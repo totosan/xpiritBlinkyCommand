@@ -45,9 +45,10 @@ namespace ModifyDevice
             TokenCredential tokenCredential = new DefaultAzureCredential();
 
             // There are constructors for all the other clients where you can pass AAD credentials - JobClient, RegistryManager, DigitalTwinClient
+            using var registryManager = RegistryManager.Create(parameters.HostName, tokenCredential);
             using var serviceClient = ServiceClient.Create(parameters.HostName, tokenCredential, parameters.TransportType);
 
-            var setColorProgram = new ModifyColor();
+            var setColorProgram = new ModifyColor(registryManager);
             await setColorProgram.ChangeColorProperties(serviceClient, parameters.DeviceId);
         }
     }
