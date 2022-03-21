@@ -1,4 +1,8 @@
 /bin/
 /obj/
 secrets.json
-.local.env
+*local.env
+publish/*
+.DS_Store
+publish.zip
+setEnv.sh
