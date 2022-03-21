@@ -13,48 +13,28 @@ namespace ModifyDevice
     {
         [Option(
             'h',
-            "HostName",
+            "hue",
             Required = true,
-            HelpText = "The IoT hub host name. Ex: my-iot-hub.azure-devices.net")]
-
-        public string HostName { get; set; }
-
-        [Option(
-           'd',
-           "DeviceId",
-           Required = true,
-           HelpText = "The IoT hub device to send a message to.")]
-
-        public string DeviceId { get; set; }
+            HelpText = "Sets the color hue"
+        )]
+        public int Hue { get; set; }
 
         [Option(
-            't',
-            "TransportType",
-            Default = TransportType.Amqp,
-            Required = false,
-            HelpText = "The transport to use to communicate with the IoT Hub. Possible values include Amqp and Amqp_WebSocket_Only.")]
-        
-        public TransportType TransportType { get; set; }
-
-        [Option(
-            "ClientId",
+            's',
+            "Saturation",
             Required = true,
-            HelpText = "The client Id of the Azure Active Directory application." +
-            " This sample uses ClientSecretCredential. For other ways to use role based authentication, see https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet.")]
-        public string ClientId { get; set; }
+            HelpText = "Sets the color saturation"
+        )]
+        public int Saturation { get; set; }
 
-        [Option(
-            "TenantId",
+                [Option(
+            'b',
+            "Brightness",
             Required = true,
-            HelpText = "The Azure Active Directory tenant (directory) Id." +
-            " This sample uses ClientSecretCredential. For other ways to use role based authentication, see https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet.")]
-        public string TenantId { get; set; }
+            HelpText = "Sets the colors brightness"
+        )]
+        public int Brightness { get; set; }
 
-        [Option(
-            "ClientSecret",
-            Required = true,
-            HelpText = "A client secret that was generated for the application Registration used to authenticate the client." +
-            " This sample uses ClientSecretCredential. For other ways to use role based authentication, see https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet.")]
-        public string ClientSecret { get; set; }
+
     }
 }
