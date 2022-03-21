@@ -35,6 +35,13 @@ namespace ModifyDevice
         )]
         public int Brightness { get; set; }
 
-
+        [Option(
+            'r',
+            "reset",
+            Required = false,
+            HelpText = "Resets to standard Breathmode"
+        )]
+        public bool Reset { get; set; }
+        
     }
 }

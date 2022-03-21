@@ -47,10 +47,10 @@ namespace ModifyDevice
             Console.WriteLine("Creating token credential.");
 
             // These environment variables are necessary for DefaultAzureCredential to use application Id and client secret to login.
-            secretConf.ClientSecret = Environment.GetEnvironmentVariable("AZURE_CLIENT_SECRET")??""; 
-            secretConf.ClientId = Environment.GetEnvironmentVariable("AZURE_CLIENT_ID")??"";
-            secretConf.TenantId = Environment.GetEnvironmentVariable("AZURE_TENANT_ID")??"";
-            secretConf.Hostname = Environment.GetEnvironmentVariable("AZURE_HOSTNAME")??"";
+            secretConf.ClientSecret = Environment.GetEnvironmentVariable("AZURE_CLIENT_SECRET") ?? "";
+            secretConf.ClientId = Environment.GetEnvironmentVariable("AZURE_CLIENT_ID") ?? "";
+            secretConf.TenantId = Environment.GetEnvironmentVariable("AZURE_TENANT_ID") ?? "";
+            secretConf.Hostname = Environment.GetEnvironmentVariable("AZURE_HOSTNAME") ?? "";
             secretConf.Deviceid = "reparable-rocket-raccoon"; //Environment.GetEnvironmentVariable("AZURE_DEVICE_ID")??"";
 
             // DefaultAzureCredential supports different authentication mechanisms and determines the appropriate credential type based of the environment it is executing in.
@@ -62,7 +62,7 @@ namespace ModifyDevice
             using var registryManager = RegistryManager.Create(secretConf.Hostname, tokenCredential);
             using var serviceClient = ServiceClient.Create(secretConf.Hostname, tokenCredential, TransportType.Amqp);
 
-            var setColorProgram = new ModifyColor(registryManager, parameters.Hue,parameters.Brightness,parameters.Saturation);
+            var setColorProgram = new ModifyColor(registryManager, parameters);
             await setColorProgram.ChangeColorProperties(serviceClient, secretConf.Deviceid);
         }
     }

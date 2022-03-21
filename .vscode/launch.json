@@ -12,8 +12,9 @@
             "program": "${workspaceFolder}/bin/Debug/net6.0/xpiritBlinkyCommand.dll",
             "args": [
                  "-h","5",
-                 "-s","127",
+                 "-s","200",
                  "-b","200",
+                 "-r","0"
             ],
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
