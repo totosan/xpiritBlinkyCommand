@@ -1,5 +1,4 @@
 /bin/
 /obj/
-**/launch.json
 secrets.json
 .local.env
