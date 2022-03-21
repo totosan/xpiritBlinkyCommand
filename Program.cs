@@ -47,11 +47,11 @@ namespace ModifyDevice
             Console.WriteLine("Creating token credential.");
 
             // These environment variables are necessary for DefaultAzureCredential to use application Id and client secret to login.
-            secretConf.ClientSecret = Environment.GetEnvironmentVariable("AZURE_CLIENT_SECRET") ?? "";
-            secretConf.ClientId = Environment.GetEnvironmentVariable("AZURE_CLIENT_ID") ?? "";
-            secretConf.TenantId = Environment.GetEnvironmentVariable("AZURE_TENANT_ID") ?? "";
-            secretConf.Hostname = Environment.GetEnvironmentVariable("AZURE_HOSTNAME") ?? "";
-            secretConf.Deviceid = "reparable-rocket-raccoon"; //Environment.GetEnvironmentVariable("AZURE_DEVICE_ID")??"";
+            secretConf.ClientSecret = Environment.GetEnvironmentVariable("AZURE_CLIENT_SECRET")??""; 
+            secretConf.ClientId = Environment.GetEnvironmentVariable("AZURE_CLIENT_ID")??"";
+            secretConf.TenantId = Environment.GetEnvironmentVariable("AZURE_TENANT_ID")??"";
+            secretConf.Hostname = Environment.GetEnvironmentVariable("AZURE_HOSTNAME")??"";
+            secretConf.Deviceid = Environment.GetEnvironmentVariable("AZURE_DEVICE_ID")??"";
 
             // DefaultAzureCredential supports different authentication mechanisms and determines the appropriate credential type based of the environment it is executing in.
             // It attempts to use multiple credential types in an order until it finds a working credential.
