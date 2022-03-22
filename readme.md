@@ -57,4 +57,4 @@ xpiritBlinkyCommand (options) [-r]
 
 ## Running example
 just look at this:
-![Example video](./Blinky.mp4)
+![Example video](./Blinky.gif)
